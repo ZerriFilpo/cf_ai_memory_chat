@@ -1,0 +1,13 @@
+name = "cf-ai-memory-chat"
+main = "src/index.py"
+
+compatibility_date = "2026-04-30"
+workers_dev = false
+compatibility_flags = ["python_workers"]
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "MEMORY"
+id = "9e5c9a6142fb459d81ed58f93ee378ba"

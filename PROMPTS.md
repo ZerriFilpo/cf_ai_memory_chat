@@ -9,7 +9,7 @@ This file documents all AI prompts used during the development of cf_ai_memory_c
 **Tool:** GitHub Copilot  
 **Purpose:** Generate the initial folder structure and HTML design  
 **Prompt:**
-> Create the file and folder structure for a Cloudflare Python Worker project called "cf_ai_memory_chat".
+Create the file and folder structure for a Cloudflare Python Worker project called "cf_ai_memory_chat".
 
 STRICT RULES — follow exactly:
 - All files must be empty except frontend/index.html
@@ -41,6 +41,19 @@ DESIGN SPEC for frontend/index.html:
 - All CSS must be written inside a 
 ---
 
+## 2. asyncio
+
+**Tool:** Claude  
+**Purpose:** Know if the asyncio module was needed  
+**Prompt:**
+Do I need to import asyncio for this project?
+
+## 2. asyncio
+
+**Tool:** Claude  
+**Purpose:** How to handle http in the project 
+**Prompt:**
+I'm building a Cloudflare Python Worker that receives chat messages from a browser. I know Python's requests library for making HTTP calls, but I'm not sure what I need to handle incoming HTTP requests inside a Worker. Do I need to import anything to read the request body, check the method, and send a JSON response back? Or does the Workers runtime handle that?
 
 ## Notes
 

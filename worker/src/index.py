@@ -13,6 +13,10 @@ class Default(WorkerEntrypoint):
             "Access-Control-Allow-Headers": "Content-Type"
         }
 
+        # Check if it's a preflight request
+        if request.method == 'OPTIONS':
+            return Response(status=204, headers=headers)
+
         if request.method == 'POST':
 
             body = await request.json()
@@ -49,11 +53,6 @@ class Default(WorkerEntrypoint):
                being serialized properly when stored in memory, now it works fine!:
             """
 
-            return Response(response, headers=to_js(headers, dict_converter=Object.fromEntries))
-
-
-        # Check if it's a preflight request
-        if request.method == 'OPTIONS':
-            return Response(status=204, headers=to_js(headers, dict_converter=Object.fromEntries))
+            return Response(response, headers=headers)
         
         return Response('Method not allowed', status=405)

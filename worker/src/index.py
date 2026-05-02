@@ -6,6 +6,13 @@ class Default(WorkerEntrypoint):
 
     async def fetch(self, request):
 
+        headers = {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type"
+        }
+
         if request.method == 'POST':
 
             body = await request.json()
@@ -42,7 +49,11 @@ class Default(WorkerEntrypoint):
                being serialized properly when stored in memory, now it works fine!:
             """
 
-            return Response(response)
+            return Response(response, headers=to_js(headers, dict_converter=Object.fromEntries))
 
+
+        # Check if it's a preflight request
+        if request.method == 'OPTIONS':
+            return Response(status=204, headers=to_js(headers, dict_converter=Object.fromEntries))
         
         return Response('Method not allowed', status=405)

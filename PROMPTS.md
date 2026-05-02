@@ -55,6 +55,13 @@ Do I need to import asyncio for this project?
 **Prompt:**
 I'm building a Cloudflare Python Worker that receives chat messages from a browser. I know Python's requests library for making HTTP calls, but I'm not sure what I need to handle incoming HTTP requests inside a Worker. Do I need to import anything to read the request body, check the method, and send a JSON response back? Or does the Workers runtime handle that?
 
+## 2. asyncio
+
+**Tool:** Claude  
+**Purpose:** What keys should be used for KV.get/put(key) 
+**Prompt:**
+What should I put on key on await self.env.MEMORY.get(key) and await self.env.MEMORY.put(key, value)?
+
 ## Notes
 
 - All logic was written manually by the developer based on AI guidance

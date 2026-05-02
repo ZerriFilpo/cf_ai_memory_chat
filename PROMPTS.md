@@ -48,19 +48,26 @@ DESIGN SPEC for frontend/index.html:
 **Prompt:**
 Do I need to import asyncio for this project?
 
-## 2. asyncio
+## 3. Http requests
 
 **Tool:** Claude  
 **Purpose:** How to handle http in the project 
 **Prompt:**
 I'm building a Cloudflare Python Worker that receives chat messages from a browser. I know Python's requests library for making HTTP calls, but I'm not sure what I need to handle incoming HTTP requests inside a Worker. Do I need to import anything to read the request body, check the method, and send a JSON response back? Or does the Workers runtime handle that?
 
-## 2. asyncio
+## 4. KV
 
 **Tool:** Claude  
 **Purpose:** What keys should be used for KV.get/put(key) 
 **Prompt:**
 What should I put on key on await self.env.MEMORY.get(key) and await self.env.MEMORY.put(key, value)?
+
+## 5. Frontend
+
+**Tool:** Claude  
+**Purpose:** Help me with frontend because I don't use javascript and html often 
+**Prompt:**
+I need help connecting my frontend with backend. Give me documentation to study about it. Do it step by step, explain every step so I can learn it. Help me build the scripts and logic for the frontend.
 
 ## Notes
 

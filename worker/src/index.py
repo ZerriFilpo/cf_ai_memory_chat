@@ -9,14 +9,18 @@ class Default(WorkerEntrypoint):
         headers = {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Methods": "POST, DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type"
         }
 
         # Check if it's a preflight request
         if request.method == 'OPTIONS':
             return Response(status=204, headers=headers)
-
+        
+        if request.method == 'DELETE':
+            await self.env.MEMORY.delete("conversation")
+            return Response(status=200, headers=headers)
+        
         if request.method == 'POST':
 
             body = await request.json()
